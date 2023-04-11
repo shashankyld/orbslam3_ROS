@@ -32,6 +32,11 @@ cd Vocabulary
 tar -xf ORBvoc.txt.tar.gz
 cd ..
 
+echo "Uncompressing vocabulary in orbslam3_workspace"
+cd orbslam3_ws/src/orb_slam3_ros_wrapper/config
+tar -xf ORBvoc.txt.tar.gz
+cd ../../../..
+
 echo "Configuring and building ORB_SLAM3 ..."
 
 mkdir build
