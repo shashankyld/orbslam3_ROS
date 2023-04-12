@@ -1,3 +1,8 @@
+
+# /home/shashank/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host
+# /opt/ros/noetic/share/realsense2_camera/launch/from_host # HERE IF YOU MISS /from_host directory, it will delete existing files from launch folder in container.
+docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
+
 # ORB-SLAM3 
 ### [Link to original ORB-SLAM3's README.md](https://github.com/UZ-SLAMLab/ORB_SLAM3)
 
