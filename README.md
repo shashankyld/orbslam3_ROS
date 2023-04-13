@@ -59,7 +59,7 @@ xhost +
 rosbag play -l MH_01_easy.bag
 ```
 9. Source your ros workspace
-10. Run the ros launch file for 
+10. Run the ros launch file for "euroc_monoimu"
 ```
 roslaunch orb_slam3_ros_wrapper euroc_monoimu.launch
 ```
