@@ -1,4 +1,10 @@
-### This repo works well with Docker
+# ORB-SLAM3 
+### [Link to original ORB-SLAM3's README.md](https://github.com/UZ-SLAMLab/ORB_SLAM3)
+
+
+## This repo works well with Ubuntu 20, ROS Noetic, Docker 
+
+### Building Docker Image 
 
 1. Build the docker file located in this orbslam3_ROS/docker_orbslam_shashank/ directory
 ```
@@ -12,6 +18,7 @@ docker build -t noetic-orbslam3:v3.0  orbslam3_ROS/docker_orbslam_shashank/
 docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
 ```
 
+### Building ORBSLAM3 and ORBSLAM3 ROS workspace
 3. Build ORBSLAM3 
 ```
 # The build.sh script automates the process of configuring and building ORB_SLAM3 and its required third-party libraries.
@@ -24,19 +31,14 @@ cd /dpds/ORB_SLAM3 && ./build.sh
 ./build_ros_orbslam3.sh
 ```
 
+### Interacting with docker
 5. Create multiple interactive shells to the docker container
 ```
 docker exec -it <container_name> bash
 ```
 
-
-
-docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
 ```
-# ORB-SLAM3 
-### [Link to original ORB-SLAM3's README.md](https://github.com/UZ-SLAMLab/ORB_SLAM3)
 
-This fork incorporates the changes that I find necessary to make it easier and more straightforward to install and run ORB-SLAM3 on Ubuntu 20.04.
 
 ## 3. Run examples
 
