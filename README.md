@@ -37,20 +37,6 @@ cd /dpds/ORB_SLAM3 && ./build.sh
 docker exec -it <container_name> bash
 ```
 
-```
-
-
-## 3. Run examples
-
-### [EuRoC datset](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets):
-```
-# Download
-cd ~
-mkdir -p Datasets/EuRoC
-cd Datasets/EuRoC/
-wget -c http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_01_easy/MH_01_easy.zip
-mkdir MH01
-unzip MH_01_easy.zip -d MH01/
 
 # Run in mono-inertial mode
 ./Examples/Monocular-Inertial/mono_inertial_euroc ./Vocabulary/ORBvoc.txt ./Examples/Monocular-Inertial/EuRoC.yaml ~/Datasets/EuRoC/MH01 ./Examples/Monocular-Inertial/EuRoC_TimeStamps/MH01.txt dataset-MH01_monoimu
