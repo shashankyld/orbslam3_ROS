@@ -14,7 +14,7 @@ docker build -t noetic-orbslam3:v3.0  orbslam3_ROS/docker_orbslam_shashank/
 ```
 2. Create a contianer 
 ```
-# Change the "-v" tag to mount your local dataset file(directory where you downloaded your data set) on the docker container
+# Change the "-v" tag to mount your local dataset file(directory where you downloaded your data set) on the docker container at a location of choice
 docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
 ```
 
@@ -45,9 +45,23 @@ xhost +
 ### Running ROS examples
 
 7. Download any ROS bag file from [The EuRoC MAV Dataset](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) to your local machine
+8. Run your bag file after following step 5 and 6
+``` 
+# rosbag play -l <your_bag_file>
 
+# Example for euroc data set (Machine Hall 01)
+# cd to mounted directory
+rosbag play -l MH_01_easy.bag
+```
+9. Source your ros workspace
+10. Run the ros launch file for 
+```
+roslaunch orb_slam3_ros_wrapper euroc_monoimu.launch
+```
 
 ## Notes:
 ### This repo is based on the works of "thien94" [Link to original Orbslam3 ROS workspace](https://github.com/thien94/orb_slam3_ros_wrapper)
 
-Work with Ubuntu 20.04, and docker, no additional work is required.
+A. Works with Ubuntu 20.04, and docker, no additional work is required.
+B. You will have to modify the launch file to consider for changes in ros topic names
+
