@@ -1,73 +1,42 @@
+### This repo works well with Docker
 
-## /home/shashank/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host
-## /opt/ros/noetic/share/realsense2_camera/launch/from_host # HERE IF YOU MISS /from_host directory, it will delete existing files from launch folder in container.
+1. Build the docker file located in this orbslam3_ROS/docker_orbslam_shashank/ directory
 ```
+# Change tag to your choice
+docker build -t noetic-orbslam3:v3.0  orbslam3_ROS/docker_orbslam_shashank/
+
+```
+2. Create a contianer 
+```
+# Change the "-v" tag to mount your local dataset file on the docker container
+docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
+```
+
+3. Build ORBSLAM3 
+```
+# The build.sh script automates the process of configuring and building ORB_SLAM3 and its required third-party libraries.
+cd /dpds/ORB_SLAM3 && ./build.sh
+```
+
+4. Build orbslam3 ros workspace
+```
+# This command executes the script to build and set up the ORB_SLAM3 ROS workspace.
+./build_ros_orbslam3.sh
+```
+
+5. Create multiple interactive shells to the docker container
+```
+docker exec -it <container_name> bash
+```
+
+
+
 docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
 ```
 # ORB-SLAM3 
 ### [Link to original ORB-SLAM3's README.md](https://github.com/UZ-SLAMLab/ORB_SLAM3)
 
 This fork incorporates the changes that I find necessary to make it easier and more straightforward to install and run ORB-SLAM3 on Ubuntu 20.04.
-
-## 1. Install
-
-### Dependencies
-```
-sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
-sudo apt update
-
-sudo apt-get install build-essential
-sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-
-sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev libjasper-dev
-
-sudo apt-get install libglew-dev libboost-all-dev libssl-dev
-
-sudo apt install libeigen3-dev
-```
-### 1.1 Pangolin:
-```
-git clone https://github.com/stevenlovegrove/Pangolin.git
-cd Pangolin
-mkdir build && cd build
-cmake ..
-make
-sudo make install
-```
-### 1.2 OpenCV
-
-Check the OpenCV version on your computer (required at leat 3.0 as stated in the original `README.md`):
-```
-python3 -c "import cv2; print(cv2.__version__)" 
-```
-On a freshly installed Ubuntu 20.04.4 LTS with desktop image, OpenCV 4.2.0 is included so we can skip to the next step. If a newer version is required (>= 3.0), follow the instrucions:
-- [General installation instruction](https://docs.opencv.org/4.x/d0/d3d/tutorial_general_install.html). 
-- If you want CUDA to be included: [How to install OpenCV 4.5.2 with CUDA 11.2 and CUDNN 8.2 in Ubuntu 20.04](https://gist.github.com/raulqf/f42c718a658cddc16f9df07ecc627be7)
-
-For example, the main commands for OpenCV 4.5.1 without CUDA and other bells and whistles:
-```
-git clone https://github.com/opencv/opencv
-git -C opencv checkout 4.5.1
-
-cd opencv
-mkdir build
-cd build
-cmake ..
-make -j4
-sudo make install
-```
-
-## 2. Build
-
-```
-# Clone the repo:
-git clone https://github.com/thien94/ORB_SLAM3.git ORB_SLAM3
-
-# Build
-cd ORB_SLAM3
-chmod +x build.sh
-./build.sh
-```
 
 ## 3. Run examples
 
