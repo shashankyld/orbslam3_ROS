@@ -71,3 +71,5 @@ A. Works with Ubuntu 20.04, and docker, no additional work is required.
 
 B. You will have to modify the launch file to consider for changes in ros topic names
 
+C. Building ROS workspace failed on my PC whenever I had multiple apps running parallelly, I just close the other apps to fix this.
+
