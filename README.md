@@ -11,7 +11,7 @@
 https://github.com/shashankyld/orbslam3_ROS.git
 ```
 
-1. Build the docker file located in this orbslam3_ROS/docker_orbslam_shashank/ directory
+1. Build the docker file located in this "orbslam3_ROS/docker_orbslam_shashank/" directory
 ```
 # Change tag to your choice
 docker build -t noetic-orbslam3:v3.0  orbslam3_ROS/docker_orbslam_shashank/
