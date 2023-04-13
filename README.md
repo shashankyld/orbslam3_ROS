@@ -45,7 +45,7 @@ xhost +
 ### Running ROS examples
 
 7. Download any ROS bag file from The EuRoC MAV Dataset to your local machine
-```
+
 
 ## Notes:
 ### This repo is based on the works of "thien94" [Link to original Orbslam3 ROS workspace](https://github.com/thien94/orb_slam3_ros_wrapper)
