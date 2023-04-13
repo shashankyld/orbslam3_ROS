@@ -36,9 +36,13 @@ cd /dpds/ORB_SLAM3 && ./build.sh
 ```
 docker exec -it <container_name> bash
 ```
+6. Run this following on your local bash to access GUI using X11
+```
+xhost + 
+```
 
 
-# Run in mono-inertial mode
+### Run in mono-inertial mode
 ./Examples/Monocular-Inertial/mono_inertial_euroc ./Vocabulary/ORBvoc.txt ./Examples/Monocular-Inertial/EuRoC.yaml ~/Datasets/EuRoC/MH01 ./Examples/Monocular-Inertial/EuRoC_TimeStamps/MH01.txt dataset-MH01_monoimu
 
 ```
