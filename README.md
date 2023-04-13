@@ -68,5 +68,6 @@ roslaunch orb_slam3_ros_wrapper euroc_monoimu.launch
 ### This repo is based on the works of "thien94" [Link to original Orbslam3 ROS workspace](https://github.com/thien94/orb_slam3_ros_wrapper)
 
 A. Works with Ubuntu 20.04, and docker, no additional work is required.
+
 B. You will have to modify the launch file to consider for changes in ros topic names
 
