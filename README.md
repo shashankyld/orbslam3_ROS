@@ -42,9 +42,9 @@ xhost +
 ```
 
 
-### Run in mono-inertial mode
-./Examples/Monocular-Inertial/mono_inertial_euroc ./Vocabulary/ORBvoc.txt ./Examples/Monocular-Inertial/EuRoC.yaml ~/Datasets/EuRoC/MH01 ./Examples/Monocular-Inertial/EuRoC_TimeStamps/MH01.txt dataset-MH01_monoimu
+### Running ROS examples
 
+7. Download any ROS bag file from The EuRoC MAV Dataset to your local machine
 ```
 ### Live with Realsense T265:
 - The param file is located inside the folder with the same name as the example that you want to run (Mono/Mono-inertial/Stereo/Stereo-Inertial). The number of parameters that you need to modify  varies accordingly.
@@ -59,8 +59,7 @@ xhost +
 ./Examples/Monocular-Inertial/mono_inertial_realsense_t265 Vocabulary/ORBvoc.txt ./Examples/Monocular-Inertial/RealSense_T265.yaml 
 ```
 
-## Changelog:
-### 13-Aug-2022
-Work with Ubuntu 20.04, no additional installation of OpenCV or C++ required:
-- Update CMakeLists.txt to use OpenCV 4.2 mimimum.
-- Update CMakeLists.txt to use C++14 instead of C++11.
+## Notes:
+### This repo is based on the works of "thien94" [Link to original Orbslam3 ROS workspace](https://github.com/thien94/orb_slam3_ros_wrapper)
+
+Work with Ubuntu 20.04, and docker, no additional work is required.
