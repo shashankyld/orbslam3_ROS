@@ -71,6 +71,17 @@ rosbag play -l MH_01_easy.bag
 roslaunch orb_slam3_ros_wrapper euroc_monoimu.launch
 ```
 
+## ADDITIONAL
+11. To connect multiple dockers using ROS, following shows how to connect host and docker
+```
+#Assumptions: host pc runs ROS_MASTER
+
+# Run this in both docker and host pc
+export ROS_MASTER_URI=http://<host_ip>:11311
+
+# Set ROS_IP in both the machine to their respective ip-address
+```
+
 ## Notes:
 ### This repo is based on the works of "thien94" [Link to original Orbslam3 ROS workspace](https://github.com/thien94/orb_slam3_ros_wrapper)
 
