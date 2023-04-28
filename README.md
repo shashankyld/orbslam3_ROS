@@ -35,7 +35,10 @@ cd /dpds/ORB_SLAM3 && ./build.sh
 # This command executes the script to build and set up the ORB_SLAM3 ROS workspace.
 ./build_ros_orbslam3.sh
 ```
-
+```
+# Source ROS workspace
+source orbslam3_ws/devel/setup.bash
+```
 ### Interacting with docker
 5. Create multiple interactive shells to the docker container
 ```
