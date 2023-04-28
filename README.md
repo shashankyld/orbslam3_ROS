@@ -22,6 +22,10 @@ docker build -t noetic-orbslam3:v3.0  orbslam3_ROS/docker_orbslam_shashank/
 # Change the "-v" tag to mount your local dataset file(directory where you downloaded your data set) on the docker container at a location of choice
 docker run --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
 ```
+```
+#WITH NETWORK TAG
+docker run --network ipb --privileged -v /home/shashank/Documents/photogrammetrylab/Docker_Containers/realsense_container/launch_from_host:/opt/ros/noetic/share/realsense2_camera/launch/from_host/ -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix noetic-orbslam3:v3.0
+```
 
 ### Building ORBSLAM3 and ORBSLAM3 ROS workspace
 3. Build ORBSLAM3 
